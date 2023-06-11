@@ -1,4 +1,5 @@
 from httpx import AsyncClient
+from basicqiwip2p.models import Response
 
 import datetime
 import json
@@ -40,14 +41,17 @@ class AioBasicQiwiP2P:
 			'expirationDateTime': self._lifetime(minutes=lifetime)
 		}
 
-		return (await self.client.put(url, json=data)).json()
+		response = (await self.client.put(url, json=data)).json()
+		return Response.parse_obj(response)
 
 
 	async def check(self, bill_id: str) -> dict:
 		""" Gets invoice information """
 
 		url = f'https://api.qiwi.com/partner/bill/v1/bills/{bill_id}'
-		return (await self.client.get(url)).json()
+
+		response = (await self.client.get(url)).json()
+		return Response.parse_obj(response)
 
 
 	async def is_paid(self, bill_id: str) -> bool:
@@ -64,6 +68,8 @@ class AioBasicQiwiP2P:
 	async def reject(self, bill_id: str) -> dict:
 		""" Closes the invoice """
 		url = f'https://api.qiwi.com/partner/bill/v1/bills/{bill_id}/reject'
-		return (await self.clent.post(url)).json()
+		
+		response = (await self.client.post(url)).json()
+		return Response.parse_obj(response)
 
 		
