@@ -1,11 +1,16 @@
-# BasicQiwiP2P
-### Test version!
+# ! Qiwi прекратила работу с рублем и больше не выпускает P2P токены !
 
-- [Project on PyPI](https://pypi.org/project/basicqiwip2p)
-- [@mayneryt](https://vk.com/mayneryt) me
+### Из-за действий Qiwi, данный проект перестал иметь какой-либо смысл</b>
 
 <br>
-<details open>
+
+## BasicQiwiP2P (проект закрыт)
+
+- [Project on PyPI](https://pypi.org/project/basicqiwip2p)
+
+
+<br>
+<details>
 <summary> <strong>Mini Documentation</strong> </summary><hr>
   
   <h3> Importing a synchronous or asynchronous class to work with </h3>
